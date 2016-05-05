@@ -18,7 +18,13 @@
 
     /*fixed nav on scroll*/
     $(window).scroll(function () {
-        if ($(window).scrollTop() > 130) {
+		var step = 150;
+		if ($(window).width() >= 1300) {
+			step = 200;
+		}
+		
+		
+        if ($(window).scrollTop() > step) {
             $('#top-header').addClass('fixed');
         }
         else {
