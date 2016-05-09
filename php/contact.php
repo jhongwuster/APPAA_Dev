@@ -3,9 +3,7 @@ require_once "PHPMailerAutoload.php";
 @$name = $_POST['name'];
 @$email = $_POST['email'];
 @$message = $_POST['message'];
-@$phone = $_POST['mobile'];
-
-echo $name AND $email AND $phone;
+@$mobile = $_POST['mobile'];
  
    $mail = new PHPMailer();
    $mail->IsSMTP();
@@ -20,8 +18,7 @@ echo $name AND $email AND $phone;
    $mail->AddAddress("admin@apgaa.com.au", "Customer email");
  
    $mail->Subject  = "Message from APGAA customer";
-   $mail->Body     = $message;
-   $mail->WordWrap = 50;  
+   $mail->Body     = "Hi Admin, \nYou have a message from APGAA website:\nSender:".$name."\nMobile:".$mobile."\nEmail:".$email."\nMessage:".$message;
  
    if(!$mail->Send()) {
 		echo 'Message was not sent.';
