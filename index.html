@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en" ng-app="appgaApp"> <!--<![endif]-->
     <head>
         <!-- Basic Page Needs -->
         <meta charset="utf-8">
@@ -16,6 +16,11 @@
         <!-- main style --> 
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/responsive.css"/>
+		
+		
+		<script src="js/angular.js"></script>
+		<script src="js/controller/news.js"></script>
+		<script src="js/service/dataService.js"></script>
 
     </head>
     <body>
@@ -342,84 +347,23 @@
 
 
                 <!-- ////////////////////// start latest news /////////////////////// -->
-                <div class="section-top-line latest-news" id="our-news">
+                <div class="section-top-line latest-news" id="our-news" ng-controller="NewsCtrl">
                     <div class="block-title text-center">
                         <h3>LATEST NEWS</h3>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="news-item">
-                                <div class="news-item-img">
-                                    <img src="img/smallPlane.jpg" alt="" class="img-responsive">
-                                </div><!--end news-item-img-->
-                                <h4><a href="single.html">PROIN RHONCUS CONSEQUAT NISL EU</a></h4>
+                    <div class="row">                        
+                        <div class="col-md-4" ng-repeat="news in recentNews">
+                            <div class="news-item">                               
+                                <h4><a href="single.html" ng-click="selectNews(news.newsId)">{{news.subject}}</a></h4>
+
                                 <div class="post-meta">
-                                    <p> <a href="#"> April 28, 2015</a></p>
+                                    <p>{{news.updateTime}}</p>
                                 </div>
-                                <p>Integer efficitur egestas lorem. Phasellus eget leo nec eros tincidunt. Ut wisi enim ad minim veniam, quis nostrud exerci tation ...</p>
-                                <a href="single.html" class="primary-btn">ream more</a>
+
+                                <p>{{news.brief}}</p>
+
+                                <a href="single.html" class="primary-btn" ng-click="selectNews(news.newsId)">ream more</a>
                             </div><!--end news-item-->
-
-                        </div>
-
-
-
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="news-item">
-                                    <div class="col-md-6">
-                                        <div class="news-item-img">
-                                            <iframe src="https://www.youtube.com/embed/UBIXmkpO6H4"></iframe>
-                                        </div><!--end news-item-img-->
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <h4><a href="single.html">PROIN RHONCUS CONSEQUAT NISL EU</a></h4>
-
-                                        <div class="post-meta">
-                                            <p> <a href="#"> April 28, 2015</a></p>
-                                        </div>
-
-                                        <p>Integer efficitur egestas lorem. Phasellus eget leo nec eros tincidunt. Ut wisi enim ad minim veniam, quis nostrud exerci tation ...</p>
-
-                                        <a href="single.html" class="primary-btn">ream more</a>
-
-                                    </div>
-                                </div><!--end news-item-->
-
-
-
-                            </div><!--end row-->
-
-
-                            <div class="row">
-                                <div class="news-item gallary-post">
-                                    <div class="col-md-6">
-                                        <div class="news-item-img">
-                                            <ul>
-                                                <li>  <img src="img/smallPlane.jpg" alt="" ></li>
-                                                <li>  <img src="img/smallPlane.jpg" alt="" ></li>
-
-                                            </ul>
-                                        </div><!--end news-item-img-->
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <h4><a href="single.html">PROIN RHONCUS CONSEQUAT NISL EU</a></h4>
-
-                                        <div class="post-meta">
-                                            <p> <a href="#"> April 28, 2015</a></p>
-                                        </div>
-
-                                        <p>Integer efficitur egestas lorem. Phasellus eget leo nec eros tincidunt. Ut wisi enim ad minim veniam, quis nostrud exerci tation ...</p>
-                                        <a href="single.html" class="primary-btn">ream more</a>
-
-                                    </div>
-                                </div><!--end news-item-->
-
-
-
-                            </div><!--end row-->
                         </div>
 
                     </div><!--end row-->

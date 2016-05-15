@@ -52,6 +52,10 @@ body{
     background: #fff;
     padding: 30px;
 }
+
+div.single-news-content{
+	min-height:900px;
+}
 /* --- typography --------------------- */
 /*headings*/
 h1,

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en" ng-app="appgaApp"> <!--<![endif]-->
     <head>
         <!-- Basic Page Needs -->
         <meta charset="utf-8">
@@ -16,6 +16,9 @@
         <!-- main style --> 
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/responsive.css"/>
+		<script src="js/angular.js"></script>
+		<script src="js/service/dataService.js"></script>
+		<script src="js/controller/newsSingle.js"></script>
 
     </head>
     <body>
@@ -45,7 +48,7 @@
             <!-- ////////////////////// END   TOP HEADER /////////////////////// -->
 
 
-            <div class="container warp">
+            <div class="container warp single-news-content" ng-controller = "NewsSingleCtrl">
                 <div class="single-post">
                     <ul class="single-post-img">
 
@@ -55,20 +58,18 @@
 
                     </ul>
 
-                    <h2>THIS IS OUR SAMPLE NEWS PAGE</h2>
+                    <h2>{{singleNews.subject}}</h2>
 
                     <div class="single-post-meta">
-                        <p> <span><i class="fa fa-calendar"></i>April 28, 2015</span></p>
+                        <p> <span><i class="fa fa-calendar"></i>{{singleNews.updateTime}}</span></p>
                     </div>
+					<div ng-bind-html="safeContent()"></div>
                     <p>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
                     </p>
 
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-                    </p>
+                    
                 </div><!-- end single-post -->
 
 
