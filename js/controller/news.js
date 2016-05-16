@@ -8,7 +8,7 @@ appgaApp.controller('NewsCtrl', function($scope,$http, newsService) {
 	
 	$http({
         method : "GET",
-        url : "http://etimeexp/appga/api/news/recent"
+        url : "http://etimeexp.com/appga/api/news/recent"
     }).then(function mySucces(response) {
 		if (response.data.resultCode != 1){
 			return;
