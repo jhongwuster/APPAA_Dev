@@ -13,8 +13,13 @@ appgaApp.controller('NewsCtrl', function($scope,$http, newsService) {
 		if (response.data.resultCode != 1){
 			return;
 		}
-        
-		$scope.recentNews = response.data.entity;
+        if (response.data.entity.length > 3){
+			$scope.recentNews = response.data.entity.slice(0, 3);
+		}
+		else{
+			$scope.recentNews = response.data.entity;
+		}
+		
     }, function myError(response) {
         $scope.recentNews = [{newsId:24, subject:"1"}, {newsId:25, subject:"2"}];
     });
